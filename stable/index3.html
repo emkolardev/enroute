@@ -1,0 +1,110 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>EnRoute</title>
+	<link rel="import" href="../bower_components/polymer/polymer.html">
+	<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  	<link rel="import" href="../bower_components/google-map/google-map.html">
+  	<link rel="import" href="../bower_components/google-map/google-map-marker.html">
+  	<link rel="import" href="../bower_components/google-map/google-map-directions.html">
+  	<link rel="import" href="../bower_components/google-map/google-map-search.html">
+	<!-- combined normalize and shared styles (base) -->
+	<link rel="stylesheet" href="../css/normalizeAndBase.css">
+	<link rel="stylesheet" href="../css/style2.css">
+</head>
+<body>
+	<div class="wrap">
+		<div class="appMain">
+			<google-map id="map1">
+	      		<google-map-marker class="youmark" id="marker1" title="You"></google-map-marker>
+	    	</google-map>
+	    	<header class="header"> 
+				<div class="stack" id="menu-icon">
+					<span class="stackbar top"></span>
+					<span class="stackbar mid"></span>
+					<span class="stackbar btm"></span>
+				</div>
+				<form class="find" id="search-form">
+					<div class="search-left">
+						<span class="search-icon" id="searchicon"></span>
+					</div>
+					<div class="search-right" id="cancel-search">
+						<span class="cancel-search" id="cancelsearch"></span>
+					</div>
+					<div class="search-fill" id="find-place">
+						<input type="text" id="searchbox" class="search">
+					</div>
+				</form>
+			</header>
+			<div class="search-body" id="searchbody">
+				<ul class="loc-suggestions" id="locsuggestions">
+				</ul>
+			</div>
+			<div class="menu closed" id="toggle-menu">
+					<ul class="menuList" id="menu-list">
+						<li class="expanding" id="expand1">
+							<span class="listItem"><span class="userIcon" id="user-icon"></span><span class="accountBtn create"><a href="#" id="account" onclick="toggleAdmin();">Sign Up | Sign In</a></span><!-- <span class="accountBtn login"><a href="#">Login</a></span> -->
+						</span>
+						</li>
+						<li>
+							<span class="listItem"><span class="userIcon" id="user-icon"></span><a href="#" id="set-home" onclick="toggleLocAdmin();">Home</a><br><span class="locInfo" id="homeInfo"></span></span>
+						</li>
+						<li>
+							<span class="listItem"><span class="userIcon" id="user-icon"></span><a href="#" id"set-work" onclick="toggleLocAdmin();">Work</a><br><span class="locInfo" id="workInfo"></span>
+						</li>
+						<li>
+							<span class="listItem" onclick="toggleLocAdmin();"><span class="userIcon" id="user-icon"></span><a href="#" id="set-favorites">Favorites</a><br><span class="locInfo" id="favInfo"></span>
+						</li>
+						<li>
+							<span class="listItem" onclick="toggleAdmin();"><span class="userIcon" id="user-icon"></span><a href="#" id="settings">Settings</a></span>
+						</li>
+					</ul>
+	<!-- 				<div class="accessAccount" id="access-account">
+						<span class="menuBack" id="menu-back"><a href="#">Back</a></span>
+						<ul class="accountList" id="account-list">
+							<li>
+								<a href="#">Create</a>
+							</li>
+							<li>
+								<a href="#">Sign In</a>
+							</li>
+						</ul>
+					</div> -->
+				<!-- <span class="appTitle" id="app-title">EnRoute</span> -->
+			</div>
+	    	<google-map-directions id="directions1"></google-map-directions>
+	    	<google-map-search id="search1"></google-map-search>
+	    	<!--<div class="direct" id="direct-list"><ol id="instructions"></ol></div>-->
+			<footer class="footer">
+				<div class="navigation">
+					<span class="icon-btn" id="start-route"></span>
+				</div>
+				<div class="opts">
+					<div class="opts-button mode" id="route">Route</div>
+					<div class="opts-button" id="explore">Explore</div>
+				</div>
+			</footer>  
+		</div>  
+		<div class="appAdmin" id="app-admin">
+			<a href="#" id="close-admin" onclick="toggleAdmin();">< Back</a>
+			<h2 class="adminTitle">{ Account and Settings }</h2>
+		</div>	
+		<div class="locAdmin" id="loc-admin">
+			<a href="#" id="close-loc-admin" onclick="toggleLocAdmin();">< Back</a>
+			<h2 class="adminTitle">{ Manage Locations }</h2>
+		</div>
+	</div>
+<style>
+.gm-style .gmnoprint {
+	margin-top: -10px;
+}
+
+</style>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/mapcomponent.js"></script>
+</body>
+</html>
