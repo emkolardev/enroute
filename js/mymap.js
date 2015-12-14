@@ -38,6 +38,8 @@ markerArray, destinations, pitstops, current, duration, onRoute, placesInfo;
     marker1.animation = "DROP";
   });
 
+  map1.styles = lightStyles;
+
   //listener for when map responds to a directions request
   dir1.addEventListener('google-map-response', function(e) {
     var steps = e.detail.response.routes[0].legs[0].steps;
